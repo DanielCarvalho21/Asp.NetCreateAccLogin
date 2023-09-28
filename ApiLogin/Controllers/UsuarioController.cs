@@ -15,7 +15,7 @@ namespace ApiLogin.Controllers
 
         public ActionResult AdicionarUsuario([FromBody] UsuarioModel novoUsuario)
         {
-            if(novoUsuario == null)
+            if (novoUsuario == null)
             {
                 return BadRequest("Dados Invalidos!!");
             }
