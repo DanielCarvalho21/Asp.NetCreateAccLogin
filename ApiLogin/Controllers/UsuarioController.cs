@@ -30,10 +30,8 @@ namespace ApiLogin.Controllers
             }
             _context.Usuarios.Add(novoUsuario);
             _context.SaveChanges();
-
-            Console.WriteLine(_usuarios.Count());
+        
             _usuarios.Add(novoUsuario);
-            Console.WriteLine(_usuarios.Count());
 
             return CreatedAtAction(nameof(GetUser), new { email = novoUsuario.Email }, novoUsuario);
         }

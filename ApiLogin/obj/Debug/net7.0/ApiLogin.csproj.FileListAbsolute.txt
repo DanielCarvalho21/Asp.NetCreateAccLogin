@@ -36,3 +36,8 @@ C:\Users\danie\source\repos\ApiLogin\ApiLogin\bin\Debug\net7.0\Microsoft.EntityF
 C:\Users\danie\source\repos\ApiLogin\ApiLogin\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\danie\source\repos\ApiLogin\ApiLogin\bin\Debug\net7.0\Npgsql.dll
 C:\Users\danie\source\repos\ApiLogin\ApiLogin\bin\Debug\net7.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\danie\source\repos\ApiLogin\ApiLogin\bin\Debug\net7.0\Humanizer.dll
+C:\Users\danie\source\repos\ApiLogin\ApiLogin\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\danie\source\repos\ApiLogin\ApiLogin\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\danie\source\repos\ApiLogin\ApiLogin\bin\Debug\net7.0\Mono.TextTemplating.dll
+C:\Users\danie\source\repos\ApiLogin\ApiLogin\bin\Debug\net7.0\System.CodeDom.dll
