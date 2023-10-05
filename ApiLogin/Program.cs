@@ -1,4 +1,7 @@
 
+using ApiLogin.Models;
+using Microsoft.EntityFrameworkCore;
+
 namespace ApiLogin
 {
     public class Program
@@ -14,6 +17,14 @@ namespace ApiLogin
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            #region [Cors]
+            builder.Services.AddCors();
+            #endregion
+
+            builder.Services.AddEntityFrameworkNpgsql()
+            .AddDbContext<ApiLoginDbContext>(options =>
+            options.UseNpgsql("Host=localhost;Port=5432;Database=postgres;Username=daniel;Password=mysecretpassword;"));
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -23,14 +34,24 @@ namespace ApiLogin
                 app.UseSwaggerUI();
             }
 
+            #region [Cors]
+            app.UseCors(c =>
+            {
+                c.AllowAnyMethod();
+                c.AllowAnyOrigin();
+                c.AllowAnyHeader();
+            });
+            #endregion
+
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
 
-
             app.MapControllers();
 
             app.Run();
+            app.UseCors();
+
         }
     }
 }

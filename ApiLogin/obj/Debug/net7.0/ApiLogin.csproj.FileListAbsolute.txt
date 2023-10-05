@@ -31,3 +31,8 @@ C:\Users\danie\source\repos\ApiLogin\ApiLogin\obj\Debug\net7.0\refint\ApiLogin.d
 C:\Users\danie\source\repos\ApiLogin\ApiLogin\obj\Debug\net7.0\ApiLogin.pdb
 C:\Users\danie\source\repos\ApiLogin\ApiLogin\obj\Debug\net7.0\ApiLogin.genruntimeconfig.cache
 C:\Users\danie\source\repos\ApiLogin\ApiLogin\obj\Debug\net7.0\ref\ApiLogin.dll
+C:\Users\danie\source\repos\ApiLogin\ApiLogin\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\danie\source\repos\ApiLogin\ApiLogin\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\danie\source\repos\ApiLogin\ApiLogin\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\danie\source\repos\ApiLogin\ApiLogin\bin\Debug\net7.0\Npgsql.dll
+C:\Users\danie\source\repos\ApiLogin\ApiLogin\bin\Debug\net7.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll

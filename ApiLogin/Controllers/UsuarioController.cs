@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using ApiLogin.Models;
+using Microsoft.Extensions.Caching.Memory;
+using Microsoft.EntityFrameworkCore;
 
 namespace ApiLogin.Controllers
 {
@@ -10,25 +12,45 @@ namespace ApiLogin.Controllers
     public class Usuario : ControllerBase
     {
 
-        private List<UsuarioModel> _usuarios = new List<UsuarioModel>();
-        [HttpPost("Adicionar")]
+        private readonly ApiLoginDbContext _context;
 
-        public ActionResult AdicionarUsuario([FromBody] UsuarioModel novoUsuario)
+        public Usuario(ApiLoginDbContext context)
+        {
+            _context = context;
+        }
+
+        private List<UsuarioModel> _usuarios = new List<UsuarioModel>();
+
+        [HttpPost("Adicionar")]
+        public ActionResult AdicionarUsuario(UsuarioModel novoUsuario)
         {
             if (novoUsuario == null)
             {
                 return BadRequest("Dados Invalidos!!");
             }
+            _context.Usuarios.Add(novoUsuario);
+            _context.SaveChanges();
 
+            Console.WriteLine(_usuarios.Count());
             _usuarios.Add(novoUsuario);
+            Console.WriteLine(_usuarios.Count());
 
-            return CreatedAtAction(nameof(Get), new { email = novoUsuario.Email }, novoUsuario);
+            return CreatedAtAction(nameof(GetUser), new { email = novoUsuario.Email }, novoUsuario);
         }
 
         [HttpGet]
-        public ActionResult Get()
+        public ActionResult<IEnumerable<UsuarioModel>> GetUser()
         {
-            return Ok("Hello World");
+            var usuarios = _context.Usuarios.ToList();
+
+            if (usuarios.Count() == 0)
+            {
+                return NoContent();
+            }
+            else
+            {
+                return Ok(usuarios);
+            }
         }
     }
 }

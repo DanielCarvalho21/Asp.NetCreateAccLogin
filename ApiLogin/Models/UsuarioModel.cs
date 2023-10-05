@@ -13,5 +13,6 @@ namespace ApiLogin.Models
         [MinLength(8)]
         public string Senha { get; set; }
         
+
     }
 }
