@@ -11,7 +11,7 @@ namespace ApiLogin.Models
 
         }
 
-        public DbSet<UsuarioModel> Usuarios { get; set; }
+        public DbSet<UsuarioModel> usuarios { get; set; }
 
         // Mapear a classe de modelo para uma tabela do banco de dados
         protected override void OnModelCreating(ModelBuilder modelBuilder)

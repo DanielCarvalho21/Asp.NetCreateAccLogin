@@ -28,18 +28,18 @@ namespace ApiLogin.Controllers
             {
                 return BadRequest("Dados Invalidos!!");
             }
-            _context.Usuarios.Add(novoUsuario);
+            _context.usuarios.Add(novoUsuario);
             _context.SaveChanges();
         
             _usuarios.Add(novoUsuario);
 
-            return CreatedAtAction(nameof(GetUser), new { email = novoUsuario.Email }, novoUsuario);
+            return CreatedAtAction(nameof(GetUser), new { email = novoUsuario.email }, novoUsuario);
         }
 
         [HttpGet]
         public ActionResult<IEnumerable<UsuarioModel>> GetUser()
         {
-            var usuarios = _context.Usuarios.ToList();
+            var usuarios = _context.usuarios.ToList();
 
             if (usuarios.Count() == 0)
             {
