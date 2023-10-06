@@ -28,6 +28,8 @@ namespace ApiLogin.Controllers
             {
                 return BadRequest("Dados Invalidos!!");
             }
+
+            novoUsuario.HashPassword();
             _context.usuarios.Add(novoUsuario);
             _context.SaveChanges();
         

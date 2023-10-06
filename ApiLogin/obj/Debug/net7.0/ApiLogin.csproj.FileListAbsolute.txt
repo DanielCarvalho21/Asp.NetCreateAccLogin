@@ -41,3 +41,4 @@ C:\Users\danie\source\repos\ApiLogin\ApiLogin\bin\Debug\net7.0\Microsoft.EntityF
 C:\Users\danie\source\repos\ApiLogin\ApiLogin\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\danie\source\repos\ApiLogin\ApiLogin\bin\Debug\net7.0\Mono.TextTemplating.dll
 C:\Users\danie\source\repos\ApiLogin\ApiLogin\bin\Debug\net7.0\System.CodeDom.dll
+C:\Users\danie\source\repos\ApiLogin\ApiLogin\bin\Debug\net7.0\BCrypt.Net-Next.dll
