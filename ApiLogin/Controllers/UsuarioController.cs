@@ -52,5 +52,23 @@ namespace ApiLogin.Controllers
                 return Ok(usuarios);
             }
         }
+
+        [HttpPost]
+        public ActionResult Login(string email, string senha)
+        {
+            var usuarios = _context.usuarios.FirstOrDefault(u => u.email == email);
+
+            if (usuarios == null)
+            {
+                return NotFound("Usario não encontrado");
+            }
+
+            if (BCrypt.Net.BCrypt.Verify(senha, usuarios.senha))
+            {
+                return Ok("Usuario autenticado com sucesso");
+            }
+
+            return Unauthorized("Senha incorreta");
+        }
     }
 }

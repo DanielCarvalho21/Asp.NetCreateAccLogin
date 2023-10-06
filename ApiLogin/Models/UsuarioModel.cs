@@ -18,7 +18,6 @@ namespace ApiLogin.Models
         [Required]
         [MinLength(8)]
         public string senha { get; set; }
-
         public UsuarioModel() { }
 
         public UsuarioModel(string email, string senha)
@@ -29,7 +28,8 @@ namespace ApiLogin.Models
 
         public void HashPassword()
         {
-            this.senha = BCrypt.Net.BCrypt.HashPassword(this.senha, BCrypt.Net.BCrypt.GenerateSalt(10));
+           this.senha = BCrypt.Net.BCrypt.HashPassword(this.senha, BCrypt.Net.BCrypt.GenerateSalt(10));
         }
     }
+    
 }
