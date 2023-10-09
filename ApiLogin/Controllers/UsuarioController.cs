@@ -29,6 +29,13 @@ namespace ApiLogin.Controllers
                 return BadRequest("Dados Invalidos!!");
             }
 
+            var usuarioExistente = _context.usuarios.Where(u => u.email == novoUsuario.email).FirstOrDefault();
+
+            if (usuarioExistente != null)
+            {
+                return BadRequest("Usuário já existe!!");
+            }
+
             novoUsuario.HashPassword();
             _context.usuarios.Add(novoUsuario);
             _context.SaveChanges();
@@ -53,17 +60,17 @@ namespace ApiLogin.Controllers
             }
         }
 
-        [HttpPost]
-        public ActionResult Login(string email, string senha)
+        [HttpPost("Login")]
+        public ActionResult Login([FromBody] UsuarioModel request)
         {
-            var usuarios = _context.usuarios.FirstOrDefault(u => u.email == email);
+            var usuarios = _context.usuarios.FirstOrDefault(u => u.email == request.email);
 
             if (usuarios == null)
             {
                 return NotFound("Usario não encontrado");
             }
 
-            if (BCrypt.Net.BCrypt.Verify(senha, usuarios.senha))
+            if (BCrypt.Net.BCrypt.Verify(request.senha, usuarios.senha))
             {
                 return Ok("Usuario autenticado com sucesso");
             }
